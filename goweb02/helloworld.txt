@@ -1,0 +1,9 @@
+<h1>Hello Goland!</h1>
+<h2>Hello world!</h2>
+<img id="d1" src="http://image.uc.cn/s/wemedia/s/upload/2022/be68d16f804d0f07b0b57a2c9dbd9fcd.png"/>
+<button id="b1">点我</button>
+<script>
+document.getElementById("b1").onclick=function(){
+  document.getElementById("d1").src="https://pic.gerenjianli.com/mingren_larger/1977/62274646.jpg"
+}
+</script>
