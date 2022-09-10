@@ -4,11 +4,11 @@
 
 - 启动
 
-  ![启动](.\picture\1-startup.gif)
+  ![启动](./picture/1-startup.gif)
 
 - 界面
 
-  ![界面演示](.\picture\2-demo.gif)
+  ![界面演示](./picture/2-demo.gif)
 
 ### 2. 官网项目: [Go 语言之旅 (go-zh.org)](https://tour.go-zh.org/welcome/1)
 
