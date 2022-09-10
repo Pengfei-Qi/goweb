@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<header>
+    <title>标题</title>
+</header>
+<body>
+{{/*结构体*/}}
+    <p>{{ .u1 }}</p>
+    <p>hello {{ .u1.Name }}</p>
+    <p>年龄: {{ .u1.Age }}</p>
+    <p>性别: {{ .u1.Gender }}</p>
+{{/*map结构*/}}
+    <p>{{ .m1 }}</p>
+    <p>hello {{- .m1.Name -}}</p>
+    <p>年龄: {{ .m1.Age }}</p>
+    <p>性别: {{ .m1.Gender }}</p>
+<hr/>
+<hr/>
+{{$v1 := 100}}
+{{$age := .u1.Age}}
+{{if $v1}}
+{{$v1}}
+{{else}}
+取值为0
+{{end}}
+<hr/>
+<hr/>
+{{/*测试range*/}}
+{{ range $ind,$val := .habby}}
+{{ $ind }} -- {{ $val }}
+{{end}}
+<hr/>
+{{/*条件判断*/}}
+{{if lt $age 21}}
+    好好学习-{{$age}}岁
+{{else}}
+    努力工作-{{$age}}岁
+{{end}}
+<hr/>
+{{/*测试遍历*/}}
+{{with .m1}}
+    <p>姓名: {{- .Name -}}</p>
+    <p>年龄: {{ .Age }}</p>
+    <p>性别: {{ .Gender }}</p>
+{{end}}
+<hr/>
+{{/*测试索引*/}}
+{{index .habby 1}}
+
+</body>
+</html>

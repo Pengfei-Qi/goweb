@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件页面</title>
+</head>
+<body>
+<form action="/uploadFun" method="post" enctype="multipart/form-data">
+    <input type="file" name="f1"/>
+    <br/>
+    <input type="submit" value="登陆"/>
+</form>
+<hr/>
+<hr/>
+<form action="/multiUploadFun" method="post" enctype="multipart/form-data">
+    <input type="file" name="f2" multiple/>
+    <br/>
+    <input type="submit" value="多文件上传登陆"/>
+</form>
+</body>
+</html>
