@@ -22,3 +22,8 @@
 
 ### 7. 参考视频: https://www.bilibili.com/video/BV1gJ411p7xC?p=27
 
+### 8. 更新日志:
+
+- goweb22 验证 `database/sql` 标准库 , 参考连接: [Go语言操作MySQL | 李文周的博客 (liwenzhou.com)](https://www.liwenzhou.com/posts/Go/go_mysql/)
+- goweb23 验证 `sqlx` 使用, 参考连接: [sqlx库使用指南 | 李文周的博客 (liwenzhou.com)](https://www.liwenzhou.com/posts/Go/sqlx/)
+- 
