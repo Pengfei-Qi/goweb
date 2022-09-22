@@ -11,8 +11,6 @@ import (
 )
 
 func main() {
-	//取不到关键数据-------待解决
-	//load config from config.json
 	if len(os.Args) < 1 {
 		return
 	}
