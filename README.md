@@ -26,4 +26,5 @@
 
 - goweb22 验证 `database/sql` 标准库 , 参考连接: [Go语言操作MySQL | 李文周的博客 (liwenzhou.com)](https://www.liwenzhou.com/posts/Go/go_mysql/)
 - goweb23 验证 `sqlx` 使用, 参考连接: [sqlx库使用指南 | 李文周的博客 (liwenzhou.com)](https://www.liwenzhou.com/posts/Go/sqlx/)
-- 
+- goweb24 验证 `redis`使用
+- goweb25_zap goweb26_gin_zap 验证zap日志 及 gin框架中的日志集成
