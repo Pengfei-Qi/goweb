@@ -46,3 +46,29 @@
 2022-09-24T17:16:40.707+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0}
 2022-09-24T17:17:51.541+0800	INFO	goweb30_app_framework2/main.go:66	Shutdown Server ...
 2022-09-24T17:17:51.542+0800	INFO	goweb30_app_framework2/main.go:75	Server exiting
+2022-09-24T17:26:38.712+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0}
+2022-09-24T17:26:55.696+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0}
+2022-09-24T17:27:24.910+0800	INFO	goweb30_app_framework2/main.go:66	Shutdown Server ...
+2022-09-24T17:27:24.911+0800	INFO	goweb30_app_framework2/main.go:75	Server exiting
+2022-09-24T17:44:23.641+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0.000093}
+2022-09-24T17:44:37.312+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0}
+2022-09-24T17:45:40.367+0800	INFO	goweb30_app_framework2/main.go:66	Shutdown Server ...
+2022-09-24T17:45:40.367+0800	INFO	goweb30_app_framework2/main.go:75	Server exiting
+2022-09-24T17:45:55.466+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0.0008388}
+2022-09-24T17:46:04.747+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0}
+2022-09-24T18:07:22.396+0800	INFO	goweb30_app_framework2/main.go:66	Shutdown Server ...
+2022-09-24T18:07:22.396+0800	INFO	goweb30_app_framework2/main.go:75	Server exiting
+2022-09-24T18:34:17.609+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0.0009256}
+2022-09-24T18:34:22.046+0800	INFO	goweb30_app_framework2/main.go:79	Shutdown Server ...
+2022-09-24T18:34:23.125+0800	INFO	goweb30_app_framework2/main.go:88	Server exiting
+2022-09-24T18:35:04.053+0800	INFO	goweb30_app_framework2/main.go:79	Shutdown Server ...
+2022-09-24T18:35:04.065+0800	INFO	goweb30_app_framework2/main.go:88	Server exiting
+2022-09-24T18:36:14.207+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0}
+2022-09-24T18:37:21.025+0800	INFO	goweb30_app_framework2/main.go:82	Shutdown Server ...
+2022-09-24T18:37:21.026+0800	INFO	goweb30_app_framework2/main.go:91	Server exiting
+2022-09-24T18:50:51.386+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0}
+2022-09-24T18:50:54.664+0800	INFO	goweb30_app_framework2/main.go:87	Shutdown Server ...
+2022-09-24T18:50:57.324+0800	INFO	goweb30_app_framework2/main.go:96	Server exiting
+2022-09-24T18:51:45.521+0800	INFO	logger/logger.go:81	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0}
+2022-09-24T18:51:49.161+0800	INFO	goweb30_app_framework2/main.go:87	Shutdown Server ...
+2022-09-24T18:51:51.299+0800	INFO	goweb30_app_framework2/main.go:96	Server exiting

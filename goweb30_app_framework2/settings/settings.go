@@ -48,16 +48,22 @@ type RedisConfig struct {
 	PoolSize int    `mapstructure:"pool_size"`
 }
 
-func Init() (err error) {
-	//1-测试yaml中读取配置
-	//viper.SetConfigFile("./config.yaml") // 指定配置文件路径
+func Init(filePath string) (err error) {
+	//1-测试yaml中读取配置,相对路径
+	//viper.SetConfigFile("./conf/config.yaml") // 指定配置文件路径
 	//2-测试json中读取配置
-	viper.SetConfigFile("testConfig.json")
+	//viper.SetConfigFile("testConfig.json")
+	//3-绝对路径读取配置
+	//viper.SetConfigFile("E:\\ProjectCode\\go_test\\goweb\\goweb30_app_framework2\\testConfig.json")
 
-	//viper.SetConfigName("config")        // 配置文件名称(无扩展名)
+	//4. 从路径中读取参数配置,
+	//viper.SetConfigName("config") // 配置文件名称(无扩展名)
+	//viper.AddConfigPath("./conf") // 在工作目录中查找配置
+	//从远程目录中读取配置
 	//viper.SetConfigType("yaml")          // 如果配置文件的名称中没有扩展名，则需要配置此项
 
-	viper.AddConfigPath(".")   // 还可以在工作目录中查找配置
+	viper.SetConfigFile(filePath)
+
 	err = viper.ReadInConfig() // 查找并读取配置文件
 	if err != nil {            // 处理读取配置文件的错误
 		fmt.Printf("viper.ReadInConfig() is error")

@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"go.uber.org/zap"
 	"goweb30_app_framework2/dao/mysql"
@@ -17,8 +18,28 @@ import (
 )
 
 func main() {
+	var path string
+
+	// 1- 采取os.args方式读取配置信息
+
+	//if len(os.Args) < 2 {
+	//	fmt.Printf("load config file failed! please input the file position")
+	//	return
+	//}
+	//path = os.Args[1]
+
+	//2- 采取flag方式读取配置信息,默认./conf/config.yaml
+	flag.StringVar(&path, "filePath", "./conf/config.yaml", "配置文件地址")
+	//解析命令行参数
+	flag.Parse()
+
+	if path == "" {
+		fmt.Printf("load config file failed! please input the file position")
+		return
+	}
+
 	//1.加载配置
-	if err := settings.Init(); err != nil {
+	if err := settings.Init(path); err != nil {
 		fmt.Printf("setting init failed, err : %v \n", err)
 		return
 	}
