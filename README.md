@@ -31,4 +31,5 @@
 - goweb26_gin_zap 验证`zap日志` 及 `gin框架中的日志`集成
 - goweb27_viper 验证 `viper`环境变量
 - goweb28_shutdownAndReboot 验证`优雅关机和重启`, 重启-windows无法实现, 须在unix machine 上才可以
+- goweb29_app_framework 脚手架项目, 了解项目的基本构建方式
 

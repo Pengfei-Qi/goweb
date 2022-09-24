@@ -1,0 +1,28 @@
+app:
+  name: "web_app"
+  mode: "dev"
+  port: 9000
+log:
+  level: "debug"
+  filename: "web_app.log"
+  max_size: 200
+  max_age: 30
+  max_backups: 5
+#  false-仅记录日志到文件, true-文件和控制台都会记录
+  print_console: true
+#  true-json格式记录日志, false-console格式记录日志
+  format_json: false
+mysql:
+  host: "192.168.235.233"
+  port: 3306
+  username: "root"
+  password: "123456"
+  db_name: "db1"
+  max_open_conns: 100
+  max_idle_conns: 20
+redis:
+  host: "192.168.235.233"
+  port: 6379
+  password: ""
+  db: 0
+  pool_size: 100

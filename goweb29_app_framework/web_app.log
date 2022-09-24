@@ -1,0 +1,18 @@
+{"level":"INFO","time":"2022-09-24T13:54:46.820+0800","caller":"logger/logger.go:70","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"::1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50","errors":"","cost":0}
+{"level":"INFO","time":"2022-09-24T13:54:46.981+0800","caller":"logger/logger.go:70","msg":"/favicon.ico","status":404,"method":"GET","path":"/favicon.ico","query":"","ip":"::1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50","errors":"","cost":0}
+{"level":"INFO","time":"2022-09-24T13:55:08.817+0800","caller":"goweb29_app_framework/main.go:71","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-09-24T13:55:08.824+0800","caller":"goweb29_app_framework/main.go:80","msg":"Server exiting"}
+{"level":"INFO","time":"2022-09-24T13:58:33.551+0800","caller":"gin@v1.8.1/context.go:173","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"::1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50","errors":"","cost":0}
+{"level":"INFO","time":"2022-09-24T13:58:47.161+0800","caller":"gin@v1.8.1/context.go:173","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"::1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50","errors":"","cost":0}
+{"level":"INFO","time":"2022-09-24T13:59:21.164+0800","caller":"runtime/proc.go:250","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-09-24T13:59:21.164+0800","caller":"runtime/proc.go:250","msg":"Server exiting"}
+{"level":"INFO","time":"2022-09-24T13:59:33.137+0800","caller":"logger/logger.go:70","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"::1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50","errors":"","cost":0}
+{"level":"INFO","time":"2022-09-24T14:00:57.382+0800","caller":"goweb29_app_framework/main.go:71","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-09-24T14:00:57.382+0800","caller":"goweb29_app_framework/main.go:80","msg":"Server exiting"}
+{"level":"INFO","time":"2022-09-24T14:08:27.195+0800","caller":"logger/logger.go:77","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"::1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50","errors":"","cost":0}
+{"level":"INFO","time":"2022-09-24T14:11:38.684+0800","caller":"goweb29_app_framework/main.go:71","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-09-24T14:11:38.684+0800","caller":"goweb29_app_framework/main.go:80","msg":"Server exiting"}
+2022-09-24T14:11:54.616+0800	INFO	logger/logger.go:82	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0}
+2022-09-24T14:16:15.293+0800	INFO	logger/logger.go:82	/	{"status": 200, "method": "GET", "path": "/", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.50", "errors": "", "cost": 0.0008832}
+2022-09-24T14:21:41.863+0800	INFO	goweb29_app_framework/main.go:71	Shutdown Server ...
+2022-09-24T14:21:41.864+0800	INFO	goweb29_app_framework/main.go:80	Server exiting
