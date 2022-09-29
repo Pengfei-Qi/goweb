@@ -34,4 +34,6 @@
 - goweb29_app_framework 脚手架项目, 了解项目的基本构建方式
 - goweb30_app_framework2 脚手架项目优化, 使用更加简介高效的配置方式,`mapstructure`映射
 - goweb31_flags 使用`os.Args` 和 `flag` 参数化启动, 同时将 `goweb30_app_framework2`  的启动方式调整为配置加载方式
+- goweb32_bells-of-ireland 开启新项目`bells-of-ireland`, 准备写一个技术博客, 项目寓意: 好运气
+  - 运用`snowflake` [链接](https://cdmana.com/2022/123/202205031931453727.html), 生成用户唯一ID
 

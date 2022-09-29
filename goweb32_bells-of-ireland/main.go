@@ -6,6 +6,7 @@ import (
 	"goweb32_bells-of-ireland/dao/mysql"
 	"goweb32_bells-of-ireland/dao/redis"
 	"goweb32_bells-of-ireland/logger"
+	"goweb32_bells-of-ireland/pkg/snowflake"
 	"goweb32_bells-of-ireland/routers"
 	"goweb32_bells-of-ireland/settings"
 	"net/http"
@@ -13,6 +14,8 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/gin-gonic/gin"
 
 	"go.uber.org/zap"
 )
@@ -42,9 +45,20 @@ func main() {
 		return
 	}
 	defer redis.Close()
+	//4.初始化Redis连接
+	if err := snowflake.Init(settings.Conf.StartTime, settings.Conf.MachineID); err != nil {
+		zap.L().Info("snowflake init failed, err : %v \n", zap.Error(err))
+		return
+	}
+
 	//5.注册路由
 	router := routers.SetUp()
-	//6.启动服务
+
+	//6. 监听服务并且延迟5秒关机
+	ListenAndDelayStopServer(router)
+}
+
+func ListenAndDelayStopServer(router *gin.Engine) {
 	srv := &http.Server{
 		Addr:    fmt.Sprintf(":%d", settings.Conf.Port),
 		Handler: router,
