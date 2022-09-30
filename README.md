@@ -36,4 +36,5 @@
 - goweb31_flags 使用`os.Args` 和 `flag` 参数化启动, 同时将 `goweb30_app_framework2`  的启动方式调整为配置加载方式
 - goweb32_bells-of-ireland 开启新项目`bells-of-ireland`, 准备写一个技术博客, 项目寓意: 好运气
   - 运用`snowflake` [链接](https://cdmana.com/2022/123/202205031931453727.html), 生成用户唯一ID
+  - `2022-10-01`更新 : a. 实现用户注册,b. main.go优化;  运用 `validator`[库](https://github.com/go-playground/validator), 实现请求参数校验
 

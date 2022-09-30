@@ -1,2 +1,6 @@
 2022-09-29T19:15:12.011+0800	INFO	goweb32_bells-of-ireland/main.go:76	Shutdown Server ...
 2022-09-29T19:15:12.023+0800	INFO	goweb32_bells-of-ireland/main.go:85	Server exiting
+2022-10-01T05:41:34.614+0800	ERROR	controller/signup.go:20	SignUp prams is invalid ,	{"error": "Key: 'PramsSignUp.age' Error:Field validation for 'age' failed on the 'lte' tag\nKey: 'PramsSignUp.email' Error:Field validation for 'email' failed on the 'email' tag\nKey: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+2022-10-01T05:41:34.615+0800	INFO	logger/logger.go:81	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.29.2", "errors": "", "cost": 0.0007171}
+2022-10-01T05:42:19.947+0800	INFO	routers/routers.go:61	Shutdown Server ...
+2022-10-01T05:42:19.948+0800	INFO	routers/routers.go:70	Server exiting
