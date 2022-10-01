@@ -16,6 +16,7 @@ type AppConfig struct {
 	Mode          string `mapstructure:"mode"`
 	Version       string `mapstructure:"version"`
 	StartTime     string `mapstructure:"start_time"`
+	LocalLanguage string `mapstructure:"local_language"`
 	MachineID     int64  `mapstructure:"machine_id"`
 	Port          int    `mapstructure:"port"`
 	*LoggerConfig `mapstructure:"log"`
@@ -24,13 +25,11 @@ type AppConfig struct {
 }
 
 type LoggerConfig struct {
-	Level        string `mapstructure:"level"`
-	FileName     string `mapstructure:"filename"`
-	MaxSize      int    `mapstructure:"max_size"`
-	MaxAge       int    `mapstructure:"max_age"`
-	MaxBackups   int    `mapstructure:"max_backups"`
-	PrintConsole bool   `mapstructure:"print_console"`
-	FormatJson   bool   `mapstructure:"format_json"`
+	Level      string `mapstructure:"level"`
+	FileName   string `mapstructure:"filename"`
+	MaxSize    int    `mapstructure:"max_size"`
+	MaxAge     int    `mapstructure:"max_age"`
+	MaxBackups int    `mapstructure:"max_backups"`
 }
 
 type MysqlConfig struct {

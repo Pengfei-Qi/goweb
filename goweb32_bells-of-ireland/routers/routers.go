@@ -17,20 +17,30 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetUp() *gin.Engine {
+func SetUp(mode string) *gin.Engine {
+	if mode == "dev" {
+		gin.SetMode(gin.DebugMode)
+	} else {
+		gin.SetMode(gin.ReleaseMode)
+	}
 	router := gin.New()
 
 	router.Use(logger.GinLogger(), logger.GinRecovery(true))
 
-	//用户注册
-	router.POST("/signup", controller.SignUp)
-
+	//根路径
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"msg":     "hello app framework 简化框架结构",
 			"version": settings.Conf.Version,
 		})
 	})
+
+	//用户注册
+	router.POST("/signup", controller.SignUp)
+
+	//用户登陆
+	router.POST("/login", controller.Login)
+
 	//启动服务或者延迟5秒关机
 	startOrDelayStopServer(router)
 

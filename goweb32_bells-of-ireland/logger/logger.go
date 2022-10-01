@@ -2,7 +2,6 @@ package logger
 
 import (
 	"goweb32_bells-of-ireland/settings"
-	"io"
 	"net"
 	"net/http"
 	"net/http/httputil"
@@ -20,26 +19,37 @@ import (
 var lg *zap.Logger
 
 // Init 初始化Logger
-func Init(loggerConf *settings.LoggerConfig) (err error) {
+func Init(loggerConf *settings.LoggerConfig, mode string) (err error) {
 	writeSyncer := getLogWriter(loggerConf.FileName,
 		loggerConf.MaxSize,
 		loggerConf.MaxBackups,
 		loggerConf.MaxAge,
-		loggerConf.PrintConsole)
-	encoder := getEncoder(loggerConf.FormatJson)
+	)
+	encoder := getEncoder()
 	var l = new(zapcore.Level)
 	err = l.UnmarshalText([]byte(loggerConf.Level))
 	if err != nil {
 		return
 	}
-	core := zapcore.NewCore(encoder, writeSyncer, l)
+	var core zapcore.Core
+
+	if mode == "dev" {
+		consoleEncoder := zapcore.NewConsoleEncoder(zap.NewDevelopmentEncoderConfig())
+		core = zapcore.NewTee(
+			zapcore.NewCore(encoder, writeSyncer, l),
+			zapcore.NewCore(consoleEncoder, zapcore.Lock(os.Stdout), zapcore.DebugLevel),
+		)
+
+	} else {
+		core = zapcore.NewCore(encoder, writeSyncer, l)
+	}
 
 	lg = zap.New(core, zap.AddCaller())
 	zap.ReplaceGlobals(lg) // 替换zap包中全局的logger实例，后续在其他包中只需使用zap.L()调用即可
 	return
 }
 
-func getEncoder(format bool) zapcore.Encoder {
+func getEncoder() zapcore.Encoder {
 	encoderConfig := zap.NewProductionEncoderConfig()
 	encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
 	encoderConfig.TimeKey = "time"
@@ -47,26 +57,17 @@ func getEncoder(format bool) zapcore.Encoder {
 	encoderConfig.EncodeDuration = zapcore.SecondsDurationEncoder
 	encoderConfig.EncodeCaller = zapcore.ShortCallerEncoder
 	//json 格式
-	if format {
-		return zapcore.NewJSONEncoder(encoderConfig)
-	}
-	//控制台模式
-	return zapcore.NewConsoleEncoder(encoderConfig)
+	return zapcore.NewJSONEncoder(encoderConfig)
 }
 
-func getLogWriter(filename string, maxSize, maxBackup, maxAge int, console bool) zapcore.WriteSyncer {
+func getLogWriter(filename string, maxSize, maxBackup, maxAge int) zapcore.WriteSyncer {
 	lumberJackLogger := &lumberjack.Logger{
 		Filename:   filename,
 		MaxSize:    maxSize,
 		MaxBackups: maxBackup,
 		MaxAge:     maxAge,
 	}
-	if !console {
-		return zapcore.AddSync(lumberJackLogger)
-	} else {
-		ws := io.MultiWriter(lumberJackLogger, os.Stdout)
-		return zapcore.AddSync(ws)
-	}
+	return zapcore.AddSync(lumberJackLogger)
 }
 
 // GinLogger 接收gin框架默认的日志

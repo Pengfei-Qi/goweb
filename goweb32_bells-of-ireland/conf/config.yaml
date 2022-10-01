@@ -4,16 +4,13 @@ port: 9000
 version: "v0.0.1"
 start_time: "2022-09-29"
 machine_id: 1
+local_language: "zh"
 log:
-  level: "debug"
+  level: "info"
   filename: "web_app.log"
   max_size: 200
   max_age: 30
   max_backups: 5
-#  false-仅记录日志到文件, true-文件和控制台都会记录
-  print_console: true
-#  true-json格式记录日志, false-console格式记录日志
-  format_json: false
 mysql:
   host: "192.168.235.233"
   port: 3306

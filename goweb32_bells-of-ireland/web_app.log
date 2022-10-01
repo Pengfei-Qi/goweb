@@ -4,3 +4,82 @@
 2022-10-01T05:41:34.615+0800	INFO	logger/logger.go:81	/signup	{"status": 200, "method": "POST", "path": "/signup", "query": "", "ip": "::1", "user-agent": "PostmanRuntime/7.29.2", "errors": "", "cost": 0.0007171}
 2022-10-01T05:42:19.947+0800	INFO	routers/routers.go:61	Shutdown Server ...
 2022-10-01T05:42:19.948+0800	INFO	routers/routers.go:70	Server exiting
+{"level":"INFO","time":"2022-10-01T12:32:06.348+0800","caller":"routers/routers.go:61","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T12:32:06.348+0800","caller":"routers/routers.go:70","msg":"Server exiting"}
+{"level":"INFO","time":"2022-10-01T12:32:30.823+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0015534}
+{"level":"ERROR","time":"2022-10-01T12:32:55.435+0800","caller":"controller/signup.go:20","msg":"SignUp prams is invalid ,","error":"Key: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2022-10-01T12:32:55.436+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0005579}
+{"level":"INFO","time":"2022-10-01T12:36:34.210+0800","caller":"routers/routers.go:66","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T12:36:34.211+0800","caller":"routers/routers.go:75","msg":"Server exiting"}
+{"level":"ERROR","time":"2022-10-01T12:36:52.859+0800","caller":"controller/signup.go:20","msg":"SignUp prams is invalid ,","error":"Key: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2022-10-01T12:36:52.870+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0107889}
+{"level":"INFO","time":"2022-10-01T12:37:31.762+0800","caller":"routers/routers.go:66","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T12:37:31.762+0800","caller":"routers/routers.go:75","msg":"Server exiting"}
+{"level":"ERROR","time":"2022-10-01T12:37:41.629+0800","caller":"controller/signup.go:20","msg":"/SignUp prams is invalid ,","error":"Key: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2022-10-01T12:37:41.639+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0109191}
+{"level":"INFO","time":"2022-10-01T12:38:06.800+0800","caller":"routers/routers.go:66","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T12:38:06.800+0800","caller":"routers/routers.go:75","msg":"Server exiting"}
+{"level":"ERROR","time":"2022-10-01T12:38:16.006+0800","caller":"controller/signup.go:20","msg":"signUp prams is invalid ,","error":"Key: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2022-10-01T12:38:16.017+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0118921}
+{"level":"ERROR","time":"2022-10-01T12:39:16.195+0800","caller":"controller/signup.go:20","msg":"signUp prams is invalid ,","error":"Key: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2022-10-01T12:39:16.196+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0003164}
+{"level":"ERROR","time":"2022-10-01T12:39:38.284+0800","caller":"controller/signup.go:20","msg":"signUp prams is invalid ,","error":"Key: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2022-10-01T12:39:38.284+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0002212}
+{"level":"INFO","time":"2022-10-01T12:39:41.554+0800","caller":"routers/routers.go:66","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T12:39:41.554+0800","caller":"routers/routers.go:75","msg":"Server exiting"}
+{"level":"ERROR","time":"2022-10-01T12:39:48.076+0800","caller":"controller/signup.go:20","msg":"signUp prams is invalid ,","error":"Key: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2022-10-01T12:39:48.087+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0111272}
+{"level":"ERROR","time":"2022-10-01T12:39:59.263+0800","caller":"controller/signup.go:20","msg":"signUp prams is invalid ,","error":"Key: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'PramsSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2022-10-01T12:39:59.264+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0001618}
+{"level":"INFO","time":"2022-10-01T12:40:04.193+0800","caller":"routers/routers.go:66","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T12:40:04.193+0800","caller":"routers/routers.go:75","msg":"Server exiting"}
+{"level":"INFO","time":"2022-10-01T13:37:13.781+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0597885}
+{"level":"INFO","time":"2022-10-01T13:37:20.047+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0007544}
+{"level":"INFO","time":"2022-10-01T13:37:30.327+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0020028}
+{"level":"INFO","time":"2022-10-01T13:37:39.794+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.000883}
+{"level":"ERROR","time":"2022-10-01T13:37:58.389+0800","caller":"controller/signup.go:20","msg":"signUp prams is invalid ,","error":"Key: 'PramsSignUp.email' Error:Field validation for 'email' failed on the 'email' tag"}
+{"level":"INFO","time":"2022-10-01T13:37:58.390+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0009954}
+{"level":"INFO","time":"2022-10-01T13:38:15.037+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0521443}
+{"level":"ERROR","time":"2022-10-01T13:39:11.069+0800","caller":"controller/login.go:17","msg":"login prams is invalid ,","error":"EOF"}
+{"level":"INFO","time":"2022-10-01T13:39:11.069+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0002499}
+{"level":"ERROR","time":"2022-10-01T13:39:18.160+0800","caller":"controller/login.go:17","msg":"login prams is invalid ,","error":"EOF"}
+{"level":"INFO","time":"2022-10-01T13:39:18.160+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0002011}
+{"level":"ERROR","time":"2022-10-01T13:39:38.980+0800","caller":"controller/login.go:17","msg":"login prams is invalid ,","error":"Key: 'PramsLogin.email' Error:Field validation for 'email' failed on the 'required' tag\nKey: 'PramsLogin.password' Error:Field validation for 'password' failed on the 'required' tag"}
+{"level":"INFO","time":"2022-10-01T13:39:38.981+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0009716}
+{"level":"ERROR","time":"2022-10-01T13:40:09.387+0800","caller":"controller/login.go:17","msg":"login prams is invalid ,","error":"Key: 'PramsLogin.email' Error:Field validation for 'email' failed on the 'email' tag"}
+{"level":"INFO","time":"2022-10-01T13:40:09.388+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0006101}
+{"level":"INFO","time":"2022-10-01T13:40:20.299+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.002148}
+{"level":"INFO","time":"2022-10-01T13:40:58.563+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0007684}
+{"level":"INFO","time":"2022-10-01T13:43:17.162+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0018389}
+{"level":"INFO","time":"2022-10-01T13:46:39.163+0800","caller":"routers/routers.go:71","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T13:46:39.163+0800","caller":"routers/routers.go:80","msg":"Server exiting"}
+{"level":"ERROR","time":"2022-10-01T13:46:53.303+0800","caller":"logic/user.go:33","msg":"校验用户信息......"}
+{"level":"ERROR","time":"2022-10-01T13:46:53.315+0800","caller":"logic/user.go:37","msg":"找不到该用户......missing destination name id in *models.User"}
+{"level":"INFO","time":"2022-10-01T13:46:53.315+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.013292}
+{"level":"INFO","time":"2022-10-01T13:50:23.749+0800","caller":"routers/routers.go:71","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T13:50:23.749+0800","caller":"routers/routers.go:80","msg":"Server exiting"}
+{"level":"ERROR","time":"2022-10-01T13:50:37.139+0800","caller":"logic/user.go:33","msg":"校验用户信息......"}
+{"level":"INFO","time":"2022-10-01T13:50:37.149+0800","caller":"mysql/user.go:55","msg":"email is :test02@live.com"}
+{"level":"INFO","time":"2022-10-01T13:50:37.151+0800","caller":"mysql/user.go:59","msg":"user password is : "}
+{"level":"ERROR","time":"2022-10-01T13:50:37.151+0800","caller":"logic/user.go:37","msg":"找不到该用户......missing destination name id in *models.User"}
+{"level":"INFO","time":"2022-10-01T13:50:37.151+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0126761}
+{"level":"INFO","time":"2022-10-01T13:52:01.500+0800","caller":"routers/routers.go:71","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T13:52:01.500+0800","caller":"routers/routers.go:80","msg":"Server exiting"}
+{"level":"ERROR","time":"2022-10-01T13:52:10.643+0800","caller":"logic/user.go:33","msg":"校验用户信息......"}
+{"level":"INFO","time":"2022-10-01T13:52:10.654+0800","caller":"mysql/user.go:55","msg":"email is :test02@live.com"}
+{"level":"INFO","time":"2022-10-01T13:52:10.655+0800","caller":"mysql/user.go:59","msg":"user password is : $2a$10$3xJLfzUZ2pJQOYesDgtp7u79kojaczYsspHFM/5zWFXwhBzvJ4cTa"}
+{"level":"INFO","time":"2022-10-01T13:52:10.706+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0631198}
+{"level":"INFO","time":"2022-10-01T13:52:54.785+0800","caller":"routers/routers.go:71","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T13:52:54.785+0800","caller":"routers/routers.go:80","msg":"Server exiting"}
+{"level":"INFO","time":"2022-10-01T13:53:04.323+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0507311}
+{"level":"INFO","time":"2022-10-01T13:55:48.534+0800","caller":"routers/routers.go:71","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T13:55:48.534+0800","caller":"routers/routers.go:80","msg":"Server exiting"}
+{"level":"ERROR","time":"2022-10-01T13:55:57.530+0800","caller":"controller/login.go:36","msg":"CheckLoginUserInfo is failed , err is :密码不一致,请重新输入"}
+{"level":"INFO","time":"2022-10-01T13:55:57.542+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.062358}
+{"level":"INFO","time":"2022-10-01T13:56:34.770+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.050041}
+{"level":"ERROR","time":"2022-10-01T13:57:10.105+0800","caller":"controller/login.go:36","msg":"CheckLoginUserInfo is failed , err is :sql: no rows in result set"}
+{"level":"INFO","time":"2022-10-01T13:57:10.106+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0018252}
+{"level":"INFO","time":"2022-10-01T13:59:14.316+0800","caller":"routers/routers.go:71","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2022-10-01T13:59:14.317+0800","caller":"routers/routers.go:80","msg":"Server exiting"}
+{"level":"ERROR","time":"2022-10-01T13:59:23.711+0800","caller":"controller/login.go:36","msg":"CheckLoginUserInfo is failed , err is :找不到该用户"}
+{"level":"INFO","time":"2022-10-01T13:59:23.722+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0123138}

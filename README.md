@@ -41,4 +41,5 @@
     - b. main.go优化;   
     - c. 参考`validator`[库](https://github.com/go-playground/validator), 实现请求参数校验
     - d. 参考博客: [validator库博客](https://www.liwenzhou.com/posts/Go/validator_usages/)
+    - e. 实现用户注册和登陆功能
 

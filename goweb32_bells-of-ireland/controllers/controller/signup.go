@@ -17,7 +17,7 @@ func SignUp(c *gin.Context) {
 	//1.获取参数, 并进行参数校验
 	p := new(models.PramsSignUp)
 	if err := c.ShouldBindJSON(&p); err != nil {
-		zap.L().Error("SignUp prams is invalid ,", zap.Error(err))
+		zap.L().Error("signUp prams is invalid ,", zap.Error(err))
 
 		// 获取validator.ValidationErrors类型的errors
 		errs, ok := err.(validator.ValidationErrors)
@@ -35,7 +35,12 @@ func SignUp(c *gin.Context) {
 		return
 	}
 	//2. 逻辑处理
-	logic.SignUp(p)
+	if err := logic.SignUp(p); err != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"msg": err.Error(),
+		})
+		return
+	}
 	//3. 数据返回
 	c.JSON(http.StatusOK, gin.H{"status": "注册成功"})
 }

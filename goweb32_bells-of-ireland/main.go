@@ -21,7 +21,7 @@ func main() {
 		return
 	}
 	//2.初始化日志
-	if err := logger.Init(settings.Conf.LoggerConfig); err != nil {
+	if err := logger.Init(settings.Conf.LoggerConfig, settings.Conf.Mode); err != nil {
 		fmt.Printf("logger init failed, err : %v \n", err)
 		return
 	}
@@ -44,11 +44,11 @@ func main() {
 		return
 	}
 	//6.初始化雪花算法
-	if err := controller.InitTrans("zh"); err != nil {
+	if err := controller.InitTrans(settings.Conf.LocalLanguage); err != nil {
 		zap.L().Info("snowflake init failed, err : %v \n", zap.Error(err))
 		return
 	}
 
 	//最后.注册路由
-	routers.SetUp()
+	routers.SetUp(settings.Conf.Mode)
 }
