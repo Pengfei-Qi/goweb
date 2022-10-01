@@ -5,6 +5,8 @@ import (
 	"goweb32_bells-of-ireland/dao/mysql"
 	"goweb32_bells-of-ireland/models"
 	"goweb32_bells-of-ireland/pkg/snowflake"
+
+	"go.uber.org/zap"
 )
 
 var (
@@ -32,14 +34,15 @@ func SignUp(up *models.PramsSignUp) (err error) {
 }
 
 // CheckLoginUserInfo 用户登陆
-func CheckLoginUserInfo(loginInfo *models.PramsLogin) (err error) {
-	var u1 models.User
+func CheckLoginUserInfo(user *models.User) (err error) {
+	originPwd := user.Password
 	//获取用户信息
-	if err, u1 = mysql.GetUserByEmail(loginInfo.Email); u1.IsEmpty() {
+	if err, user = mysql.GetUserByEmail(user.Email); err != nil {
 		return ErrorAccountNotExist
 	}
+	zap.L().Info(user.Username)
 	//校验密码
-	if !mysql.CompareHashAndPwd(u1.Password, loginInfo.Password) {
+	if !mysql.CompareHashAndPwd(user.Password, originPwd) {
 		return ErrorInvalidPwd
 	}
 	return

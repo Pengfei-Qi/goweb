@@ -11,6 +11,10 @@ const (
 	CodeMissAccountOrPassword
 	CodeServerNotFound
 	CodeServerPing
+
+	CodeTokenException
+	CodeInvalidToken
+	CodeNotLogin
 )
 
 var resMsg = map[ResCode]string{
@@ -22,6 +26,10 @@ var resMsg = map[ResCode]string{
 	CodeMissAccountOrPassword: "用户名或密码错误",
 	CodeServerNotFound:        "404 Not Found",
 	CodeServerPing:            "pong",
+	CodeTokenException:        "token 异常",
+
+	CodeInvalidToken: "无效Token",
+	CodeNotLogin:     "TOKEN 未登录",
 }
 
 func (res ResCode) Msg() string {

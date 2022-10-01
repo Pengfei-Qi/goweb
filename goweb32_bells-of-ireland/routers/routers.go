@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"goweb32_bells-of-ireland/controllers/controller"
 	"goweb32_bells-of-ireland/logger"
+	"goweb32_bells-of-ireland/middlewares"
 	"goweb32_bells-of-ireland/settings"
 	"net/http"
 	"os"
@@ -38,7 +39,7 @@ func SetUp(mode string) *gin.Engine {
 	})
 
 	//ping
-	router.GET("/ping", func(c *gin.Context) {
+	router.GET("/ping", middlewares.JWTAuthMiddleware(), func(c *gin.Context) {
 		controller.ResponseSuccess(c, "pong")
 	})
 

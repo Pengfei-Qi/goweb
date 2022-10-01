@@ -4,6 +4,7 @@ import (
 	"errors"
 	"goweb32_bells-of-ireland/logic"
 	"goweb32_bells-of-ireland/models"
+	"goweb32_bells-of-ireland/pkg/jwt"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
@@ -27,8 +28,13 @@ func LoginHandler(c *gin.Context) {
 		ResponseErrorWithMsg(c, CodeInvalidPram, removeTopStruct(errs.Translate(trans)))
 		return
 	}
+	var user = &models.User{
+		Email:    p.Email,
+		Password: p.Password,
+	}
+
 	//校验用户信息
-	if errs := logic.CheckLoginUserInfo(p); errs != nil {
+	if errs := logic.CheckLoginUserInfo(user); errs != nil {
 		zap.L().Error("checkLoginUserInfo failed ", zap.String("email", p.Email), zap.Error(errs))
 		if errors.Is(errs, logic.ErrorAccountNotExist) || errors.Is(errs, logic.ErrorInvalidPwd) {
 			ResponseError(c, CodeMissAccountOrPassword)
@@ -37,8 +43,13 @@ func LoginHandler(c *gin.Context) {
 		ResponseError(c, CodeSeverBusy)
 		return
 	}
-
+	//生成TOKEN
+	token, err := jwt.GetToken(user.UserID, user.Email)
+	if err != nil {
+		ResponseError(c, CodeTokenException)
+		return
+	}
 	//成功响应
-	ResponseSuccess(c, nil)
+	ResponseSuccess(c, token)
 
 }

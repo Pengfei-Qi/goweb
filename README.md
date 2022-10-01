@@ -43,4 +43,5 @@
     - d. 参考博客: [validator库博客](https://www.liwenzhou.com/posts/Go/validator_usages/)
     - e. 实现用户注册和登陆功能
     - f. 实现统一的响应体
+    - g. 实现JWT鉴权
 
