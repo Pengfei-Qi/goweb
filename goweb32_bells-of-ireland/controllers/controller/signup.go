@@ -1,9 +1,10 @@
 package controller
 
 import (
+	"errors"
+	"goweb32_bells-of-ireland/dao/mysql"
 	"goweb32_bells-of-ireland/logic"
 	"goweb32_bells-of-ireland/models"
-	"net/http"
 	"strings"
 
 	"github.com/go-playground/validator/v10"
@@ -13,7 +14,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SignUp(c *gin.Context) {
+func SignUpHandler(c *gin.Context) {
 	//1.获取参数, 并进行参数校验
 	p := new(models.PramsSignUp)
 	if err := c.ShouldBindJSON(&p); err != nil {
@@ -23,26 +24,24 @@ func SignUp(c *gin.Context) {
 		errs, ok := err.(validator.ValidationErrors)
 		if !ok {
 			// 非validator.ValidationErrors类型错误直接返回
-			c.JSON(http.StatusOK, gin.H{
-				"msg": err.Error(),
-			})
+			ResponseError(c, CodeInvalidPram)
 			return
 		}
 		// validator.ValidationErrors类型错误则进行翻译
-		c.JSON(http.StatusOK, gin.H{
-			"msg": removeTopStruct(errs.Translate(trans)),
-		})
+		ResponseErrorWithMsg(c, CodeInvalidPram, removeTopStruct(errs.Translate(trans)))
 		return
 	}
 	//2. 逻辑处理
 	if err := logic.SignUp(p); err != nil {
-		c.JSON(http.StatusOK, gin.H{
-			"msg": err.Error(),
-		})
+		if errors.Is(err, mysql.ErrorAccountExit) {
+			ResponseError(c, CodeAccountExist)
+			return
+		}
+		ResponseError(c, CodeSeverBusy)
 		return
 	}
 	//3. 数据返回
-	c.JSON(http.StatusOK, gin.H{"status": "注册成功"})
+	ResponseSuccess(c, nil)
 }
 
 func removeTopStruct(fields map[string]string) map[string]string {

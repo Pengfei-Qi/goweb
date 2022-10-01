@@ -18,9 +18,7 @@ import (
 )
 
 func SetUp(mode string) *gin.Engine {
-	if mode == "dev" {
-		gin.SetMode(gin.DebugMode)
-	} else {
+	if mode == gin.ReleaseMode {
 		gin.SetMode(gin.ReleaseMode)
 	}
 	router := gin.New()
@@ -29,17 +27,26 @@ func SetUp(mode string) *gin.Engine {
 
 	//根路径
 	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"msg":     "hello app framework 简化框架结构",
-			"version": settings.Conf.Version,
+		controller.ResponseSuccess(c, gin.H{
+			"version":     settings.Conf.Version,
+			"projectName": settings.Conf.Name,
 		})
+	})
+	//无路由
+	router.NoRoute(func(c *gin.Context) {
+		controller.ResponseError(c, controller.CodeServerNotFound)
+	})
+
+	//ping
+	router.GET("/ping", func(c *gin.Context) {
+		controller.ResponseSuccess(c, "pong")
 	})
 
 	//用户注册
-	router.POST("/signup", controller.SignUp)
+	router.POST("/signup", controller.SignUpHandler)
 
 	//用户登陆
-	router.POST("/login", controller.Login)
+	router.POST("/login", controller.LoginHandler)
 
 	//启动服务或者延迟5秒关机
 	startOrDelayStopServer(router)

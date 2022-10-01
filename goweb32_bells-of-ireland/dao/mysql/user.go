@@ -7,6 +7,10 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+var (
+	ErrorAccountExit = errors.New("邮箱已被注册")
+)
+
 // CheckUserExist 判断用户是否存在
 func CheckUserExist(email string) (err error) {
 	sqlStr := "select count(1) from user where email = ? "
@@ -15,7 +19,7 @@ func CheckUserExist(email string) (err error) {
 		return err
 	}
 	if num > 0 {
-		return errors.New("邮箱已被注册")
+		return ErrorAccountExit
 	}
 	return
 }
@@ -23,11 +27,6 @@ func CheckUserExist(email string) (err error) {
 func InsertUserInfo(user *models.User) (err error) {
 	insertStr := "insert into user (user_id,username,password,email) values(?,?,?,?)"
 	user.Password, _ = encryptPassword(user.Password)
-	//if compareHashAndPwd(user.Password, "1q2w3e4r5t") {
-	//	zap.L().Info("密码一致")
-	//} else {
-	//	zap.L().Info("密码不一致")
-	//}
 	if _, err = db.Exec(insertStr, user.UserID, user.Username, user.Password, user.Email); err != nil {
 		return err
 	}

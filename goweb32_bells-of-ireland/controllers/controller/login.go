@@ -1,16 +1,16 @@
 package controller
 
 import (
+	"errors"
 	"goweb32_bells-of-ireland/logic"
 	"goweb32_bells-of-ireland/models"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"go.uber.org/zap"
 )
 
-func Login(c *gin.Context) {
+func LoginHandler(c *gin.Context) {
 	//获取ID 及 密码
 	p := new(models.PramsLogin)
 	if err := c.ShouldBindJSON(&p); err != nil {
@@ -20,29 +20,25 @@ func Login(c *gin.Context) {
 		errs, ok := err.(validator.ValidationErrors)
 		if !ok {
 			// 非validator.ValidationErrors类型错误直接返回
-			c.JSON(http.StatusOK, gin.H{
-				"msg": err.Error(),
-			})
+			ResponseError(c, CodeInvalidPram)
 			return
 		}
 		// validator.ValidationErrors类型错误则进行翻译
-		c.JSON(http.StatusOK, gin.H{
-			"msg": removeTopStruct(errs.Translate(trans)),
-		})
+		ResponseErrorWithMsg(c, CodeInvalidPram, removeTopStruct(errs.Translate(trans)))
 		return
 	}
 	//校验用户信息
-	if ok, errs := logic.CheckLoginUserInfo(p); !ok {
-		zap.L().Error("CheckLoginUserInfo is failed , err is :" + errs.Error())
-		c.JSON(http.StatusOK, gin.H{
-			"msg": errs.Error(),
-		})
+	if errs := logic.CheckLoginUserInfo(p); errs != nil {
+		zap.L().Error("checkLoginUserInfo failed ", zap.String("email", p.Email), zap.Error(errs))
+		if errors.Is(errs, logic.ErrorAccountNotExist) || errors.Is(errs, logic.ErrorInvalidPwd) {
+			ResponseError(c, CodeMissAccountOrPassword)
+			return
+		}
+		ResponseError(c, CodeSeverBusy)
 		return
 	}
 
 	//成功响应
-	c.JSON(http.StatusOK, gin.H{
-		"msg": "login success",
-	})
+	ResponseSuccess(c, nil)
 
 }
