@@ -251,3 +251,11 @@
 {"level":"INFO","time":"2022-10-08T19:24:01.316+0800","caller":"logger/logger.go:82","msg":"/refreshToken","status":500,"method":"GET","path":"/refreshToken","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0014025}
 {"level":"INFO","time":"2022-10-08T19:25:10.419+0800","caller":"routers/routers.go:82","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2022-10-08T19:25:10.420+0800","caller":"routers/routers.go:91","msg":"Server exiting"}
+{"level":"INFO","time":"2022-10-08T19:25:41.772+0800","caller":"logger/logger.go:82","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0547962}
+{"level":"INFO","time":"2022-10-08T19:25:53.847+0800","caller":"logger/logger.go:82","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0498313}
+{"level":"INFO","time":"2022-10-08T19:26:17.663+0800","caller":"logger/logger.go:82","msg":"/ping","status":200,"method":"GET","path":"/ping","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0006428}
+{"level":"INFO","time":"2022-10-08T19:26:45.821+0800","caller":"logger/logger.go:82","msg":"/ping","status":200,"method":"GET","path":"/ping","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0}
+{"level":"INFO","time":"2022-10-08T19:27:13.951+0800","caller":"logger/logger.go:82","msg":"/ping","status":200,"method":"GET","path":"/ping","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0}
+{"level":"INFO","time":"2022-10-08T19:27:37.289+0800","caller":"logger/logger.go:82","msg":"/refreshToken","status":200,"method":"GET","path":"/refreshToken","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0002401}
+{"level":"INFO","time":"2022-10-08T19:27:47.606+0800","caller":"logger/logger.go:82","msg":"/ping","status":200,"method":"GET","path":"/ping","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0007392}
+{"level":"INFO","time":"2022-10-08T19:27:51.052+0800","caller":"logger/logger.go:82","msg":"/ping","status":200,"method":"GET","path":"/ping","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0001164}
