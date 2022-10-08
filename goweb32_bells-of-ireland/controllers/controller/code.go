@@ -15,6 +15,7 @@ const (
 	CodeTokenException
 	CodeInvalidToken
 	CodeNotLogin
+	CodeRefreshTokenFail
 )
 
 var resMsg = map[ResCode]string{
@@ -28,8 +29,9 @@ var resMsg = map[ResCode]string{
 	CodeServerPing:            "pong",
 	CodeTokenException:        "token 异常",
 
-	CodeInvalidToken: "无效Token",
-	CodeNotLogin:     "TOKEN 未登录",
+	CodeInvalidToken:     "无效Token",
+	CodeNotLogin:         "Token 未登录",
+	CodeRefreshTokenFail: "Token 刷新失败",
 }
 
 func (res ResCode) Msg() string {

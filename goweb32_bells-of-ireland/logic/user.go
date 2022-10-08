@@ -5,8 +5,6 @@ import (
 	"goweb32_bells-of-ireland/dao/mysql"
 	"goweb32_bells-of-ireland/models"
 	"goweb32_bells-of-ireland/pkg/snowflake"
-
-	"go.uber.org/zap"
 )
 
 var (
@@ -40,10 +38,13 @@ func CheckLoginUserInfo(user *models.User) (err error) {
 	if err, user = mysql.GetUserByEmail(user.Email); err != nil {
 		return ErrorAccountNotExist
 	}
-	zap.L().Info(user.Username)
 	//校验密码
 	if !mysql.CompareHashAndPwd(user.Password, originPwd) {
 		return ErrorInvalidPwd
 	}
 	return
+}
+
+func SaveToken(accessToken string, user *models.User) {
+
 }

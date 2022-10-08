@@ -49,6 +49,9 @@ func SetUp(mode string) *gin.Engine {
 	//用户登陆
 	router.POST("/login", controller.LoginHandler)
 
+	//刷新Token
+	router.GET("/refreshToken", controller.RefreshToken)
+
 	//启动服务或者延迟5秒关机
 	startOrDelayStopServer(router)
 
