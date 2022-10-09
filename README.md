@@ -45,4 +45,5 @@
     - f. 实现统一的响应体
     - g. 实现JWT鉴权
     - h. 实现有效期内登录: 还有两个功能未实现: 1).accessToken未过期时, 刷新token;2)实现同一时间内只能一台设备登录
+    - i. 添加`Makefile`文件, 参考: 1). [Makefile使用](https://www.liwenzhou.com/posts/Go/makefile/), windows 使用起来局限性比较多; 2). [windows安装make](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows/32127632#32127632)
 

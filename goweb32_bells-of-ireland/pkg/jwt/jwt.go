@@ -13,7 +13,7 @@ import (
 
 var (
 	mySigningKey               = []byte("AllYourBase")
-	AccessTokenExpireDuration  = time.Second * 60
+	AccessTokenExpireDuration  = time.Minute * 60
 	RefreshTokenExpireDuration = time.Hour * 24 * 7
 )
 
