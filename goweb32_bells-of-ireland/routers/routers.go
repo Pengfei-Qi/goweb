@@ -38,19 +38,25 @@ func SetUp(mode string) *gin.Engine {
 		controller.ResponseError(c, controller.CodeServerNotFound)
 	})
 
-	//ping
-	router.GET("/ping", middlewares.JWTAuthMiddleware(), func(c *gin.Context) {
-		controller.ResponseSuccess(c, "pong")
-	})
+	v1 := router.Group("/api/v1")
 
 	//用户注册
-	router.POST("/signup", controller.SignUpHandler)
+	v1.POST("/signup", controller.SignUpHandler)
 
 	//用户登陆
-	router.POST("/login", controller.LoginHandler)
+	v1.POST("/login", controller.LoginHandler)
 
 	//刷新Token
-	router.GET("/refreshToken", controller.RefreshToken)
+	v1.GET("/refreshToken", controller.RefreshToken)
+
+	v1.Use(middlewares.JWTAuthMiddleware())
+
+	{
+		//ping
+		v1.GET("/ping", middlewares.JWTAuthMiddleware(), func(c *gin.Context) {
+			controller.ResponseSuccess(c, "pong")
+		})
+	}
 
 	//启动服务或者延迟5秒关机
 	startOrDelayStopServer(router)
