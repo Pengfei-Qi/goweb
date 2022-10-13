@@ -7,6 +7,10 @@
         <input type="text" class="form-control" name="name" id="name" placeholder="用户名" v-model="username"/>
       </div>
       <div class="form-group">
+        <label for="email">邮箱</label>
+        <input type="text" class="form-control" name="email" id="email" placeholder="邮箱" v-model="email"/>
+      </div>
+      <div class="form-group">
         <label for="pass">密码</label>
         <input type="password" class="form-control" name="pass" id="pass" placeholder="密码" v-model="password"/>
       </div>
@@ -27,6 +31,7 @@ export default {
 	data() {
 		return {
 			username: "",
+      email: "",
 			password: "",
 			re_password: "",
 			submitted: false
@@ -44,6 +49,7 @@ export default {
 				url:'/signup',
 				data: JSON.stringify({
 					username: this.username,
+          email: this.email,
 					password: this.password,
 					re_password: this.re_password
 				})
