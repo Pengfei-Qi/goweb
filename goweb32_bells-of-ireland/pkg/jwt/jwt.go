@@ -4,6 +4,8 @@ import (
 	"errors"
 	"time"
 
+	"github.com/spf13/viper"
+
 	"github.com/dgrijalva/jwt-go"
 )
 
@@ -13,7 +15,6 @@ import (
 
 var (
 	mySigningKey               = []byte("AllYourBase")
-	AccessTokenExpireDuration  = time.Minute * 60
 	RefreshTokenExpireDuration = time.Hour * 24 * 7
 )
 
@@ -29,7 +30,7 @@ func GetToken(userID int64, email string) (aToken, rToken string, err error) {
 		userID,
 		email,
 		jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(AccessTokenExpireDuration).Unix(),
+			ExpiresAt: time.Now().Add(time.Duration(viper.GetInt("token_expired")) * time.Minute).Unix(),
 			Issuer:    "my_loves",
 		},
 	}
