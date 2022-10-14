@@ -35,7 +35,7 @@ func SignUp(up *models.PramsSignUp) (err error) {
 func CheckLoginUserInfo(user *models.User) (err error) {
 	originPwd := user.Password
 	//获取用户信息
-	if err, user = mysql.GetUserByEmail(user.Email); err != nil {
+	if err = mysql.GetUserByEmail(user); err != nil {
 		return ErrorAccountNotExist
 	}
 	//校验密码

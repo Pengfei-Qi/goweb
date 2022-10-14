@@ -51,7 +51,12 @@ func LoginHandler(c *gin.Context) {
 		return
 	}
 	//成功响应
-	ResponseSuccess(c, gin.H{"Authorization": atoken, "refreshToken": rtoken})
+	ResponseSuccess(c, gin.H{
+		"token":        atoken,
+		"refreshToken": rtoken,
+		"username":     user.Username,
+		"user_id":      user.UserID,
+	})
 }
 
 func RefreshToken(c *gin.Context) {

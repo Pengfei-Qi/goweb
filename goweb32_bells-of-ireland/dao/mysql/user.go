@@ -48,10 +48,8 @@ func CompareHashAndPwd(pwd1, pwd2 string) bool {
 	}
 }
 
-func GetUserByEmail(email string) (error, *models.User) {
-	var user models.User
+func GetUserByEmail(user *models.User) error {
 	queryStr := "select user_id,username,password,email from user where email = ?"
-	err := db.Get(&user, queryStr, email)
-
-	return err, &user
+	err := db.Get(user, queryStr, user.Email)
+	return err
 }
