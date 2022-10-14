@@ -48,4 +48,5 @@
     - i. 添加`Makefile`文件, 参考: 1). [Makefile使用](https://www.liwenzhou.com/posts/Go/makefile/), windows 使用起来局限性比较多; 2). [windows安装make](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows/32127632#32127632)
     - j. 添加`air`热部署功能, 参考: 1):  [windows 安装 air](https://learnku.com/articles/55510); 2) [air_GitHub](https://github.com/cosmtrek/air); 3) [博客地址](https://www.liwenzhou.com/posts/Go/live_reload_with_air/)
     - k. 添加 `bells_of_ireland_frontend` 前端项目
+    - l. 1) 调整登陆方式; 2)适配前端; 3)添加`air`热部署; 4) 添加`make`自动化编译工具
 
