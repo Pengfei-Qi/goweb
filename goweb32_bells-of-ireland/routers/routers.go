@@ -53,9 +53,12 @@ func SetUp(mode string) *gin.Engine {
 
 	{
 		//ping
-		v1.GET("/ping", middlewares.JWTAuthMiddleware(), func(c *gin.Context) {
+		v1.GET("/ping", func(c *gin.Context) {
 			controller.ResponseSuccess(c, "pong")
 		})
+
+		//获取community
+		v1.GET("/community", controller.CommunityHandler)
 	}
 
 	//启动服务或者延迟5秒关机
