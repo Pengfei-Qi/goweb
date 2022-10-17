@@ -1,3 +1,0 @@
-{"level":"INFO","time":"2022-10-08T19:27:47.606+0800","caller":"logger/logger.go:82","msg":"/ping","status":200,"method":"GET","path":"/ping","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0007392}
-{"level":"INFO","time":"2022-10-08T19:27:51.052+0800","caller":"logger/logger.go:82","msg":"/ping","status":200,"method":"GET","path":"/ping","query":"","ip":"::1","user-agent":"PostmanRuntime/7.29.2","errors":"","cost":0.0001164}
-
