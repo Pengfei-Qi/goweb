@@ -18,7 +18,6 @@ func GetCommunityList() (communityList []*models.Community, err error) {
 }
 
 func GetCommunityDetailByID(id int64) (community *models.CommunityDetail, err error) {
-
 	community = new(models.CommunityDetail)
 
 	sqlStr := `SELECT

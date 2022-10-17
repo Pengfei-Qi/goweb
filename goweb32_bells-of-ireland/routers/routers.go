@@ -60,6 +60,10 @@ func SetUp(mode string) *gin.Engine {
 		//获取community
 		v1.GET("/community", controller.CommunityHandler)
 		v1.GET("/community/:id", controller.CommunityDetailHandler)
+
+		//发帖
+		v1.POST("/post", controller.CreateArticleHandler)
+		v1.GET("/post/:id", controller.QueryArticleDetailHandler)
 	}
 
 	//启动服务或者延迟5秒关机

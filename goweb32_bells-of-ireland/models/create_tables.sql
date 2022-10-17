@@ -45,8 +45,7 @@ CREATE TABLE IF NOT EXISTS `post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-DROP TABLE IF EXISTS `comment`;
-CREATE TABLE `comment` (
+CREATE TABLE IF NOT EXISTS `comment` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `comment_id` bigint(20) unsigned NOT NULL,
   `content` text COLLATE utf8mb4_general_ci NOT NULL,

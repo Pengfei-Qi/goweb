@@ -7,14 +7,21 @@ import (
 )
 
 var ErrorUserNotLogin = errors.New("用户未登录")
+var CtxUserId = "userId"
 
-func getCurrentUser(c *gin.Context) error {
+func getCurrentUserID(c *gin.Context) (userID int64, err error) {
 	//1. 获取ID
-	//id, exists := c.Get(middlewares.CtxUserId)
-	//if !exists{
-	//	return ErrorUserNotLogin
-	//}
+	id, ok := c.Get(CtxUserId)
+	if !ok {
+		err = ErrorUserNotLogin
+		return
+
+	}
 	//2. 获取用户信息
-	//userId:= id.(int64)
-	return nil
+	userID, ok = id.(int64)
+	if !ok {
+		err = ErrorUserNotLogin
+		return
+	}
+	return
 }
