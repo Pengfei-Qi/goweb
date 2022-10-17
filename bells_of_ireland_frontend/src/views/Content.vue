@@ -83,7 +83,7 @@ export default {
       })
         .then(response => {
           console.log(1, response.data);
-          if (response.code == 1000) {
+          if (response.code == 10000) {
             this.post = response.data;
           } else {
             console.log(response.msg);
