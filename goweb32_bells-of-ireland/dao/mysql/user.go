@@ -1,14 +1,9 @@
 package mysql
 
 import (
-	"errors"
 	"goweb32_bells-of-ireland/models"
 
 	"golang.org/x/crypto/bcrypt"
-)
-
-var (
-	ErrorAccountExit = errors.New("邮箱已被注册")
 )
 
 // CheckUserExist 判断用户是否存在
