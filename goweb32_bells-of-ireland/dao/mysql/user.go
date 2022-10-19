@@ -48,3 +48,10 @@ func GetUserByEmail(user *models.User) error {
 	err := db.Get(user, queryStr, user.Email)
 	return err
 }
+
+func GetUserByID(id int64) (user *models.User, err error) {
+	user = new(models.User)
+	queryStr := "select user_id,username,password,email from user where user_id = ?"
+	err = db.Get(user, queryStr, id)
+	return
+}

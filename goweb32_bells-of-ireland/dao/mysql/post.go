@@ -13,17 +13,15 @@ func InsertPost(p *models.Post) (err error) {
 func QueryPostById(postID int64) (post *models.Post, err error) {
 	post = new(models.Post)
 	sqlStr := `SELECT DISTINCT
-	p.post_id,
-	p.title,
-	p.content,
-	p.community_id,
-	c.community_name 
+	post_id,
+	title,
+	content,
+	community_id,
+    author_id
 	FROM
-		post p,
-		community c 
+		post 
 	WHERE
-	 p.community_id = c.community_id AND
-		p.post_id = ?`
+	 post_id = ?`
 	err = db.Get(post, sqlStr, postID)
 	return
 }

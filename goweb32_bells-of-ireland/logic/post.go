@@ -4,6 +4,8 @@ import (
 	"goweb32_bells-of-ireland/dao/mysql"
 	"goweb32_bells-of-ireland/models"
 	"goweb32_bells-of-ireland/pkg/snowflake"
+
+	"go.uber.org/zap"
 )
 
 func CreateArticle(p *models.Post) error {
@@ -13,7 +15,38 @@ func CreateArticle(p *models.Post) error {
 	return mysql.InsertPost(p)
 }
 
-func QueryArticleDetail(id int64) (*models.Post, error) {
+func QueryArticleDetail(id int64) (data *models.ApiPostDetail, err error) {
+	//查询post
+	post, err := mysql.QueryPostById(id)
+	if err != nil {
+		zap.L().Error("post data not found ",
+			zap.Int64("post_id", id),
+			zap.Error(err))
+		return
+	}
 
-	return mysql.QueryPostById(id)
+	user, err := mysql.GetUserByID(post.AuthorID)
+	if err != nil {
+		zap.L().Error("user data not found ",
+			zap.Int64("user_id", post.AuthorID),
+			zap.Error(err))
+		return
+	}
+
+	//获取community
+	community, err := mysql.GetCommunityDetailByID(post.CommunityId)
+	if err != nil {
+		zap.L().Error("community data not found ",
+			zap.Int64("community_data", post.CommunityId),
+			zap.Error(err))
+		return
+	}
+	//封装数据
+	data = &models.ApiPostDetail{
+		AuthorName:      user.Username,
+		Post:            post,
+		CommunityDetail: community,
+	}
+
+	return data, err
 }

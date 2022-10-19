@@ -42,6 +42,7 @@ func QueryArticleDetailHandler(c *gin.Context) {
 	postID := c.Param("id")
 	id, err := strconv.ParseInt(postID, 10, 64)
 	if err != nil {
+		zap.L().Info("received data failed , err is ", zap.Error(err))
 		ResponseError(c, CodeInvalidPram)
 		return
 	}
