@@ -2,6 +2,7 @@ package controller
 
 import (
 	"errors"
+	"fmt"
 	"goweb32_bells-of-ireland/logic"
 	"goweb32_bells-of-ireland/models"
 	"goweb32_bells-of-ireland/pkg/jwt"
@@ -55,7 +56,7 @@ func LoginHandler(c *gin.Context) {
 		"token":        atoken,
 		"refreshToken": rtoken,
 		"username":     user.Username,
-		"user_id":      user.UserID,
+		"user_id":      fmt.Sprintf("%d", user.UserID), //转换为字符串
 	})
 }
 

@@ -57,3 +57,35 @@ func QueryArticleDetailHandler(c *gin.Context) {
 	ResponseSuccess(c, data)
 
 }
+
+// QueryPostListHandler 查询分页列表
+func QueryPostListHandler(c *gin.Context) {
+	//获取分页数据信息
+	page, size := getPageInfo(c)
+
+	//查询数据
+	data, err := logic.QueryPostListDetail(page, size)
+	if err != nil {
+		zap.L().Warn("QueryPostListDetail is failed, error is ", zap.Error(err))
+		ResponseError(c, CodeInvalidPram)
+		return
+	}
+	//响应
+	ResponseSuccess(c, data)
+}
+
+// getPageInfo 获取分页数据
+func getPageInfo(c *gin.Context) (int64, int64) {
+	pageStr := c.Query("page")
+	sizeStr := c.Query("size")
+	zap.L().Info("received data is", zap.String("page", pageStr), zap.String("size", sizeStr))
+	page, err := strconv.ParseInt(pageStr, 10, 64)
+	if err != nil {
+		page = 1
+	}
+	size, err := strconv.ParseInt(sizeStr, 10, 64)
+	if err != nil {
+		size = 10
+	}
+	return page, size
+}
