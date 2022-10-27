@@ -65,6 +65,9 @@ func SetUp(mode string) *gin.Engine {
 		v1.POST("/post", controller.CreateArticleHandler)
 		v1.GET("/post/:id", controller.QueryArticleDetailHandler)
 		v1.GET("/posts", controller.QueryPostListHandler)
+
+		//投票
+		v1.POST("/vote", controller.PostVoteController)
 	}
 
 	//启动服务或者延迟5秒关机

@@ -2,6 +2,7 @@ package logic
 
 import (
 	"goweb32_bells-of-ireland/dao/mysql"
+	"goweb32_bells-of-ireland/dao/redis"
 	"goweb32_bells-of-ireland/models"
 	"goweb32_bells-of-ireland/pkg/snowflake"
 
@@ -12,7 +13,14 @@ func CreateArticle(p *models.Post) error {
 	//1. 生成ID
 	p.ID = snowflake.GenID()
 	//2. 插入数据
-	return mysql.InsertPost(p)
+	if err := mysql.InsertPost(p); err != nil {
+		return err
+	}
+	if err := redis.CreatePostTime(p); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func QueryArticleDetail(id int64) (data *models.ApiPostDetail, err error) {
