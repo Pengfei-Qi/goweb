@@ -24,7 +24,8 @@ direction=-1
 */
 
 var (
-	ErrorsTimeExpired = errors.New("帖子已过期")
+	ErrorsTimeExpired  = errors.New("帖子已过期")
+	ErrorsPostRepeated = errors.New("帖子不能重新投票")
 )
 
 const (
@@ -41,6 +42,10 @@ func VoteForPost(userID, postID string, direction float64) error {
 	}
 	//获取帖子分数
 	pv, _ := client.ZScore(GetRedisKey(KeyPostVotedZSetPrefix+postID), userID).Result()
+	//帖子不能重复投票
+	if pv == direction {
+		return ErrorsPostRepeated
+	}
 	// 判断用户行为
 	var pt float64
 	if direction > pv {
@@ -67,17 +72,21 @@ func VoteForPost(userID, postID string, direction float64) error {
 }
 
 func CreatePostTime(p *models.Post) error {
-	//创建redis食物
+	//创建redis事务
 	txPipeline := client.TxPipeline()
 	postId := strconv.FormatInt(p.ID, 10)
+	//帖子时间
 	txPipeline.ZAdd(GetRedisKey(KeyPostTimeZSet), redis.Z{
 		Score:  float64(time.Now().Unix()),
 		Member: postId,
 	})
+	//帖子分数
 	txPipeline.ZAdd(GetRedisKey(KeyPostScoreZSet), redis.Z{
 		Score:  PostScore,
 		Member: postId,
 	})
+	//添加社区和帖子关联关系
+	txPipeline.SAdd(GetRedisKey(KeyCommunitySetPrefix + strconv.FormatInt(p.CommunityId, 10)))
 	_, err := txPipeline.Exec()
 	return err
 }

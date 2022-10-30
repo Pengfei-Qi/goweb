@@ -35,3 +35,9 @@ type ParamPostData struct {
 	Size  int64  `json:"size" form:"size"`
 	Order string `json:"order" form:"order"`
 }
+
+// ParamCommunityPostData 请求数据
+type ParamCommunityPostData struct {
+	*ParamPostData
+	CommunityID int64 `json:"community_id" form:"community_id"`
+}

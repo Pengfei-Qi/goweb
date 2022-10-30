@@ -115,3 +115,31 @@ func QueryPostListHandler2(c *gin.Context) {
 	//响应
 	ResponseSuccess(c, data)
 }
+
+// QueryCommunityPostListHandler 根据社区类型查询分页列表
+func QueryCommunityPostListHandler(c *gin.Context) {
+
+	p := &models.ParamCommunityPostData{
+		ParamPostData: &models.ParamPostData{
+			Page:  1,
+			Size:  10,
+			Order: models.OrderByTime,
+		},
+	}
+	//获取分页数据信息
+	if err := c.ShouldBindQuery(p); err != nil {
+		ResponseError(c, CodeInvalidPram)
+		return
+	}
+
+	//查询数据
+	data, err := logic.QueryCommunityPostListDetail(p)
+	if err != nil {
+		zap.L().Warn("QueryPostListDetail is failed, error is ", zap.Error(err))
+		ResponseError(c, CodeInvalidPram)
+		return
+	}
+
+	//响应
+	ResponseSuccess(c, data)
+}

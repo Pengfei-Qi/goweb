@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"goweb32_bells-of-ireland/dao/redis"
 	"goweb32_bells-of-ireland/logic"
 	"goweb32_bells-of-ireland/models"
 
@@ -36,6 +37,10 @@ func PostVoteController(c *gin.Context) {
 	err = logic.VoteForPost(userID, pram)
 	if err != nil {
 		zap.L().Error("logic.VoteForPost failed, error is", zap.Error(err))
+		if err == redis.ErrorsPostRepeated {
+			ResponseErrorWithMsg(c, CodeSeverBusy, err.Error())
+			return
+		}
 		ResponseError(c, CodeSeverBusy)
 		return
 	}
