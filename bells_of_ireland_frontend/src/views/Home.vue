@@ -143,7 +143,7 @@ export default {
       })
         .then(response => {
           console.log(response.data, 222);
-          if (response.code == 1000) {
+          if (response.code == 10000) {
             this.postList = response.data;
           } else {
             console.log(response.msg);
@@ -163,7 +163,7 @@ export default {
         })
       })
         .then(response => {
-          if (response.code == 1000) {
+          if (response.code == 10000) {
             console.log("vote success");
           } else {
             console.log(response.msg);
