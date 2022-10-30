@@ -30,9 +30,10 @@ type PramsVoteData struct {
 }
 
 // ParamPostData 请求数据
+// 参考: https://github.com/swaggo/swag/blob/master/README.md#example-value-of-struct
 type ParamPostData struct {
-	CommunityID int64  `json:"community_id" form:"community_id"`
-	Page        int64  `json:"page" form:"page"`
-	Size        int64  `json:"size" form:"size"`
-	Order       string `json:"order" form:"order"`
+	CommunityID int64  `json:"community_id" form:"community_id"`   //社区id
+	Page        int64  `json:"page" form:"page" example:"1"`       //当前页
+	Size        int64  `json:"size" form:"size" example:"10"`      //每页记录数
+	Order       string `json:"order" form:"order" example:"score"` //排序方式  time:按时间;score:按投票分数
 }

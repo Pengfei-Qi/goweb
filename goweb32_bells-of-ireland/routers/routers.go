@@ -13,6 +13,11 @@ import (
 	"syscall"
 	"time"
 
+	_ "goweb32_bells-of-ireland/docs" // 项目文档, 如果没有则先运行:swag init
+
+	swaggerFiles "github.com/swaggo/files" // swagger embed files
+	gs "github.com/swaggo/gin-swagger"     // gin-swagger middleware
+
 	"go.uber.org/zap"
 
 	"github.com/gin-gonic/gin"
@@ -39,6 +44,9 @@ func SetUp(mode string) *gin.Engine {
 	})
 
 	v1 := router.Group("/api/v1")
+
+	//swagger文档
+	v1.GET("/swagger/*any", gs.WrapHandler(swaggerFiles.Handler))
 
 	//用户注册
 	v1.POST("/signup", controller.SignUpHandler)

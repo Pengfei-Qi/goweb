@@ -10,6 +10,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+/*
+swagger参考文档: https://github.com/swaggo/swag/blob/master/README_zh-CN.md
+*/
+
 func CreateArticleHandler(c *gin.Context) {
 	// 1. 获取参数
 	post := new(models.Post)
@@ -91,6 +95,16 @@ func getPageInfo(c *gin.Context) (int64, int64) {
 }
 
 // QueryPostListHandler2 查询分页列表
+// @Summary 升级版帖子列表接口
+// @Description 可按社区按时间或分数排序查询帖子列表接口
+// @Tags 帖子相关接口
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Param object query models.ParamPostData false "查询参数"
+// @Security ApiKeyAuth
+// @Success 200 {object} _ResponsePostList
+// @Router /posts2 [get]
 func QueryPostListHandler2(c *gin.Context) {
 
 	p := &models.ParamPostData{

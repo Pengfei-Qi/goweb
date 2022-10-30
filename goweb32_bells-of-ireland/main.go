@@ -13,6 +13,20 @@ import (
 	"go.uber.org/zap"
 )
 
+// @title bells-of-ireland项目接口文档
+// @version 1.0
+// @description 文档的各种接口信息
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name 星辰
+// @contact.url http://www.swagger.io/support
+// @contact.email support@swagger.io
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+
+// @host localhost:9000
+// @BasePath /api/v1
 func main() {
 
 	//1.加载配置
