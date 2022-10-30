@@ -58,10 +58,10 @@ func VoteForPost(userID, postID string, direction float64) error {
 	//创建帖子分数
 	score := math.Abs(direction - pv)
 	txPipeline.ZIncrBy(GetRedisKey(KeyPostScoreZSet), pt*score*PostScore, postID)
-	//创建帖子记录
-	if direction == 0 {
-		txPipeline.ZRem(GetRedisKey(KeyPostVotedZSetPrefix+postID), userID)
-	} else {
+	//重新投票时,再添加记录
+	txPipeline.ZRem(GetRedisKey(KeyPostVotedZSetPrefix+postID), userID)
+	if direction != 0 {
+		//创建帖子记录
 		txPipeline.ZAdd(GetRedisKey(KeyPostVotedZSetPrefix+postID), redis.Z{
 			Score:  direction,
 			Member: userID,
@@ -86,7 +86,7 @@ func CreatePostTime(p *models.Post) error {
 		Member: postId,
 	})
 	//添加社区和帖子关联关系
-	txPipeline.SAdd(GetRedisKey(KeyCommunitySetPrefix + strconv.FormatInt(p.CommunityId, 10)))
+	txPipeline.SAdd(GetRedisKey(KeyCommunitySetPrefix+strconv.FormatInt(p.CommunityId, 10)), postId)
 	_, err := txPipeline.Exec()
 	return err
 }

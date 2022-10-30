@@ -25,19 +25,14 @@ type PramsLogin struct {
 // PramsVoteData 投票时参数
 type PramsVoteData struct {
 	//用户ID 从请求头中获取
-	PostId    string `json:"post_id" binding:"required"`       //post id 帖子ID
-	Direction int8   `json:"direction" binding:"oneof=1 0 -1"` //投票类型, 赞成票(1) 反对票(-1) 取消投票(0)
+	PostId    string `json:"post_id" binding:"required"`              //post id 帖子ID
+	Direction int8   `json:"direction,string" binding:"oneof=1 0 -1"` //投票类型, 赞成票(1) 反对票(-1) 取消投票(0)
 }
 
 // ParamPostData 请求数据
 type ParamPostData struct {
-	Page  int64  `json:"page" form:"page"`
-	Size  int64  `json:"size" form:"size"`
-	Order string `json:"order" form:"order"`
-}
-
-// ParamCommunityPostData 请求数据
-type ParamCommunityPostData struct {
-	*ParamPostData
-	CommunityID int64 `json:"community_id" form:"community_id"`
+	CommunityID int64  `json:"community_id" form:"community_id"`
+	Page        int64  `json:"page" form:"page"`
+	Size        int64  `json:"size" form:"size"`
+	Order       string `json:"order" form:"order"`
 }

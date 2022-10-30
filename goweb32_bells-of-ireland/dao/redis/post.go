@@ -63,7 +63,7 @@ func GetPostsVoteNum(ids []string) (count []int64, err error) {
 a1
 a2
 */
-func GetCommunityPostIDsByOrder(param *models.ParamCommunityPostData) ([]string, error) {
+func GetCommunityPostIDsByOrder(param *models.ParamPostData) ([]string, error) {
 
 	//获取 orderKey
 	orderKey := GetRedisKey(KeyPostTimeZSet)

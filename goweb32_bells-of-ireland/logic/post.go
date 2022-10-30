@@ -158,7 +158,7 @@ func QueryPostListDetail2(param *models.ParamPostData) (apiPosts []*models.ApiPo
 	return
 }
 
-func QueryCommunityPostListDetail(param *models.ParamCommunityPostData) (apiPosts []*models.ApiPostDetail, err error) {
+func QueryCommunityPostListDetail(param *models.ParamPostData) (apiPosts []*models.ApiPostDetail, err error) {
 	//查询redis中的postID
 	ids, err := redis.GetCommunityPostIDsByOrder(param)
 	if err != nil {
@@ -166,7 +166,7 @@ func QueryCommunityPostListDetail(param *models.ParamCommunityPostData) (apiPost
 		return
 	}
 	if len(ids) == 0 {
-		zap.L().Error("redis get pods is null")
+		zap.L().Error("redis get posts is null")
 		return
 	}
 	zap.L().Info("redis query community posts is", zap.Any("posts", ids))
@@ -212,5 +212,18 @@ func QueryCommunityPostListDetail(param *models.ParamCommunityPostData) (apiPost
 		apiPosts = append(apiPosts, data)
 	}
 
+	return
+}
+
+func QueryPostListNew(param *models.ParamPostData) (apiPosts []*models.ApiPostDetail, err error) {
+	if param.CommunityID == 0 {
+		apiPosts, err = QueryPostListDetail2(param)
+	} else {
+		apiPosts, err = QueryCommunityPostListDetail(param)
+	}
+	if err != nil {
+		zap.L().Error("QueryPostListNew get data failed", zap.Error(err))
+		return nil, err
+	}
 	return
 }
