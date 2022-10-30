@@ -65,6 +65,7 @@ func SetUp(mode string) *gin.Engine {
 		v1.POST("/post", controller.CreateArticleHandler)
 		v1.GET("/post/:id", controller.QueryArticleDetailHandler)
 		v1.GET("/posts", controller.QueryPostListHandler)
+		v1.GET("/posts2", controller.QueryPostListHandler2)
 
 		//投票
 		v1.POST("/vote", controller.PostVoteController)
